@@ -1,20 +1,35 @@
 import React from 'react';
-import { createGlobalStyle } from "styled-components";
+import Header from './Components/Header/Header';
+import SongsList from './Components/SongsList/SongsList';
 
-const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Bangers');
-  body {
-    font-family: 'Bangers', sans-serif;
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      songs: [
+        {
+          id: 1,
+          artist: 'Eminem',
+          title: 'Godzilla'
+        },
+        {
+          id: 2,
+          artist: 'Roddy Ricch',
+          title: 'The Box'
+        }
+      ]
+    }
   }
-`
 
-function App() {
-  return (
-    <div>
-      <GlobalStyles />
-      <h1>TOP CULTURE</h1>
-    </div>
-  );
+  render() {
+    return (
+      <>
+        <Header title="TOP CULTURE" />
+        <SongsList songs={this.state.songs} />
+      </>
+    )
+  }
 }
 
 export default App;
